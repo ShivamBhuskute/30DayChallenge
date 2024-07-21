@@ -11,8 +11,10 @@
     <h1 id="header">Header</h1>
     <p class="text">text</p>
     <ul class="list">
+        This
         <li>Javascript</li>
     </ul>
+    <button id="btn">Click me!</button>
 </body>
 <script>
     // Activity 1
@@ -38,6 +40,25 @@
     document.querySelector('.text').remove();
 
     document.querySelector("li:last-child").remove();
+
+    // Activity 4
+    const myElement = document.getElementById("header");
+    myElement.setAttribute("class", "democlass");
+
+    myElement.classList.remove('democlass');
+
+    // Activity 5
+    document.getElementById("btn").addEventListener("click", function () {
+        document.querySelector('#header').innerHTML = "This is new header";
+    })
+
+    var m = document.querySelector('.list');
+    m.addEventListener('mouseover', function () {
+        m.style.color = 'red';
+    })
+    m.addEventListener('mouseout', function () {
+        m.style.color = 'black';
+    })
 </script>
 
 </html>
