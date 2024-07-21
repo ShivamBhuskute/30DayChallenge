@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="header">Header</h1>
+    <p class="text">text</p>
+    <ul class="list">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // Activity 1
+    var a = document.querySelector('#header').innerHTML = "Texts";
+    var b = document.querySelector('.text').style.color = "blue";
+
+    // Activity 2
+    function divContent(content) {
+        const div = document.createElement('div');
+        div.innerHTML = `${content}`;
+        document.body.appendChild(div)
+    }
+    divContent("is it day");
+
+    function addList(content) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(content));
+        document.querySelector('.list').appendChild(li);
+    }
+    addList("Python")
+
+    // Activity 3(removing elements)
+    document.querySelector('.text').remove();
+
+    document.querySelector("li:last-child").remove();
+</script>
+
+</html>
