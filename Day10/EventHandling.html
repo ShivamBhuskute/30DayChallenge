@@ -15,9 +15,27 @@
         <li>Javascript</li>
     </ul>
     <button id="btn">Click me!</button>
-    <br/>
-    <br/>
-    <input id="inp"></input>
+    <br />
+    <br />
+    <input type="text" id="inp"></input>
+
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <label for="dropdown">Choose an option:</label>
+    <select id="dropdown">
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+    </select>
+    <p id="selectedValue">Selected value will be displayed here</p>
 </body>
 <script>
     // Activity 1
@@ -37,6 +55,39 @@
     })
 
     // Activity 3
+    const key = document.querySelector('#inp');
+    key.addEventListener("keydown", function (e) {
+        console.log(e.key);
+    })
+
+    key.addEventListener("keyup", function (e) {
+        console.log(e.key);
+    })
+
+
+    // Activity 4
+    const form = document.getElementById("myForm");
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        formData.forEach((value, key) => {
+            console.log(`${key}: ${value}`);
+        });
+    })
+
+    const dropdown = document.getElementById('dropdown');
+    const selectedValueParagraph = document.getElementById('selectedValue');
+
+    dropdown.addEventListener('change', function (e) {
+        const selectedValue = e.target.value;
+        selectedValueParagraph.textContent = `Selected value: ${selectedValue}`;
+    });
+
+
+    // Activity 5
     
 </script>
 
