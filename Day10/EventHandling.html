@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="header">Header</h1>
+    <p class="text">text</p>
+    <ul class="list">
+        This
+        <li>Javascript</li>
+    </ul>
+    <button id="btn">Click me!</button>
+    <br/>
+    <br/>
+    <input id="inp"></input>
+</body>
+<script>
+    // Activity 1
+    const OnClick = document.getElementById("btn");
+    OnClick.addEventListener("click", function () {
+        OnClick.innerHTML = "Now don't click me";
+    })
+
+    // Activity 2
+    const mouseOver = document.querySelector(".text");
+    mouseOver.addEventListener("mouseover", function (e) {
+        e.target.style.color = "red";
+    })
+
+    mouseOver.addEventListener("mouseout", function (e) {
+        e.target.style.color = "black";
+    })
+
+    // Activity 3
+    
+</script>
+
+</html>
