@@ -14,6 +14,15 @@ class Person {
     static genericGreet() {
         return "Hello!!!!";
     }
+
+    getname() {
+        return `This is ${this.name}, ${this.age}`;
+    }
+
+    setName(name) {
+        name = "Bob";
+        return `New name is ${name}`;
+    }
 }
 
 const person1 = new Person();
@@ -46,3 +55,8 @@ console.log(Person.genericGreet());
 const student2 = new Student();
 const student3 = new Student();
 console.log(Student.totalStudents);
+
+// Avtivity 4
+console.log(person1.getname());
+
+console.log(person1.setName());
