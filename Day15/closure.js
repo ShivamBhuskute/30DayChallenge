@@ -32,4 +32,5 @@ myCounter.increment();
 console.log(myCounter.getValue()); // Logs 2
 
 myCounter.increment();
-console.log(myCounter.getValue()); // Logs 3
+console.log(myCounter.getValue()); // Logs 3 
+
