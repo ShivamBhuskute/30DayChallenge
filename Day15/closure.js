@@ -32,5 +32,37 @@ myCounter.increment();
 console.log(myCounter.getValue()); // Logs 2
 
 myCounter.increment();
-console.log(myCounter.getValue()); // Logs 3 
+console.log(myCounter.getValue()); // Logs 3
 
+// Activity 2
+function createUniqueIdGenerator() {
+    let lastId = 0; // Private variable to keep track of the last generated ID
+
+    return {
+        generate: function () {
+            lastId += 1;
+            return lastId;
+        },
+        getLastId: function () {
+            return lastId;
+        },
+    };
+}
+
+const uniqueIdGenerator = createUniqueIdGenerator();
+
+console.log(uniqueIdGenerator.generate()); // Logs 1
+console.log(uniqueIdGenerator.generate()); // Logs 2
+console.log(uniqueIdGenerator.getLastId()); // Logs 2
+console.log(uniqueIdGenerator.generate()); // Logs 3
+console.log(uniqueIdGenerator.getLastId()); // Logs 3
+
+function greet() {
+    let name = "Shivam";
+    return function () {
+        return `Hello! ${name}`;
+    };
+}
+
+const name = greet();
+console.log(name());
