@@ -66,3 +66,41 @@ function greet() {
 
 const name = greet();
 console.log(name());
+
+// Avtivity 3
+const functionArray = [];
+
+for (let i = 0; i < 5; i++) {
+    functionArray[i] = (function (index) {
+        return function () {
+            console.log(index);
+        };
+    })(i); //IIFE
+}
+
+// Testing the functions
+functionArray[0](); // Logs 0
+functionArray[1](); // Logs 1
+functionArray[2](); // Logs 2
+functionArray[3](); // Logs 3
+functionArray[4](); // Logs 4
+
+// Using async
+// const functionArray = [];
+
+// for (let i = 0; i < 5; i++) {
+//     functionArray[i] = (function (index) {
+//         return async function () {
+//             console.log(index);
+//         };
+//     })(i);
+// }
+
+// // Testing the functions
+// (async function testFunctions() {
+//     await functionArray[0](); // Logs 0
+//     await functionArray[1](); // Logs 1
+//     await functionArray[2](); // Logs 2
+//     await functionArray[3](); // Logs 3
+//     await functionArray[4](); // Logs 4
+// })();
