@@ -39,3 +39,22 @@ function maxiEle(arr, n) {
 const array = [1, 5, 3, 9, 2];
 const n = array.length;
 console.log(maxiEle(array, n));
+
+// Activity 3
+function reverseString(str) {
+    // Base case: if the string is empty or has only one character, return it
+    if (str === "" || str.length === 1) {
+        return str;
+    }
+    // Recursive case: call the function with the substring excluding the first character
+    // and add the first character to the end of the result
+    return reverseString(str.substring(1)) + str[0];
+}
+console.log(reverseString("shiv"));
+
+function ifPal(i, s) {
+    if (i > s.length / 2) return true;
+    if (s[i] != s[s.length - i - 1]) return false;
+    return ifPal(i + 1, s);
+}
+console.log(ifPal(0, "madam"));
