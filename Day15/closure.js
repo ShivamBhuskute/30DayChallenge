@@ -140,3 +140,63 @@ console.log(itemManager.listItems()); // ['Apple', 'Banana']
 itemManager.removeItem("Apple");
 console.log(itemManager.listItems()); // ['Banana']
 
+// Activity 5
+function memoize(func) {
+    const cache = {};
+
+    return function (...args) {
+        const key = JSON.stringify(args);
+        if (cache[key]) {
+            return cache[key];
+        } else {
+            const result = func(...args);
+            cache[key] = result;
+            return result;
+        }
+    };
+}
+
+// Example usage:
+function slowFunction(num) {
+    // Simulate a slow function with a heavy computation
+    let result = 0;
+    for (let i = 0; i <= num; i++) {
+        result += i;
+    }
+    return result;
+}
+
+const memoizedSlowFunction = memoize(slowFunction);
+
+console.log(memoizedSlowFunction(100000)); // Computes and returns result
+console.log(memoizedSlowFunction(100000)); // Returns cached result
+
+function memoize(func) {
+    const cache = {};
+
+    return function(...args) {
+        const key = JSON.stringify(args);
+        if (cache[key] !== undefined) {
+            return cache[key];
+        } else {
+            const result = func(...args);
+            cache[key] = result;
+            return result;
+        }
+    };
+}
+
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+const memoizedFactorial = memoize(factorial);
+
+console.log(memoizedFactorial(5)); // 120
+console.log(memoizedFactorial(6)); // 720
+console.log(memoizedFactorial(5)); // 120, retrieved from cache
+console.log(memoizedFactorial(7)); // 5040
+
