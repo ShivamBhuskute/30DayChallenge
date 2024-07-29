@@ -104,3 +104,39 @@ functionArray[4](); // Logs 4
 //     await functionArray[3](); // Logs 3
 //     await functionArray[4](); // Logs 4
 // })();
+
+// Activity 4
+const itemManager = (() => {
+    // Private collection of items
+    let items = [];
+
+    // Add an item to the collection
+    const addItem = (item) => {
+        items.push(item);
+    };
+
+    // Remove an item from the collection
+    const removeItem = (item) => {
+        items = items.filter((i) => i !== item);
+    };
+
+    // List all items in the collection
+    const listItems = () => {
+        return items;
+    };
+
+    // Return the public methods
+    return {
+        addItem,
+        removeItem,
+        listItems,
+    };
+})();
+
+// Usage example
+itemManager.addItem("Apple");
+itemManager.addItem("Banana");
+console.log(itemManager.listItems()); // ['Apple', 'Banana']
+itemManager.removeItem("Apple");
+console.log(itemManager.listItems()); // ['Banana']
+
