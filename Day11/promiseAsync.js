@@ -49,3 +49,34 @@ fetchData(url1, 1000)
     .catch((error) => {
         console.error("Error fetching data:", error);
     });
+
+// Activity 3
+async function waitForAndLog(promise) {
+    try {
+        const result = await promise;
+        console.log(result);
+    } catch (error) {
+        console.error("Error: ", error);
+    }
+}
+
+const promise = new Promise((resolve) => {
+    setTimeout(() => resolve("Done"), 2000);
+});
+
+waitForAndLog(promise);
+
+async function handleRejected(promise) {
+    try {
+        const result = await promise;
+        console.log(result);
+    } catch (error) {
+        console.error("Error: ", error);
+    }
+}
+
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => reject("Rejectrd"), 1000);
+});
+
+handleRejected(promise);
